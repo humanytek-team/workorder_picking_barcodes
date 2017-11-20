@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="mrp_production_workcenter_form_view_inherit_post_inventory_button" model="ir.ui.view">
+            <field name="name">mrp_production_workcenter_form_view_inherit_post_inventory_button</field>
+            <field name="model">mrp.workorder</field>
+            <field name="inherit_id" ref="mrp.mrp_production_workcenter_form_view_inherit"/>
+            <field name="arch" type="xml">
+
+                <button name="action_see_move_scrap" position='after'>
+                    <div class="oe_button_box" name="button_box">
+                        <button string="Pickings" name="show_pickings" type="object" class="oe_stat_button" icon="fa-bars"/>
+                    </div>
+                </button>
+
+                <field name='product_id' position='after'>
+                    <field name='post_visible' invisible='1'/>
+                    
+                </field>
+
+                <button name="button_scrap" position="after">
+                    <button name="workorder_post_inventory" string="Post Inventory" type="object" attrs="{'invisible': [('post_visible', '=', False)]}" groups="base.group_no_one"/>
+                <!-- <button name="post_inventory" string="Post Inventory" type="object" groups="base.group_no_one"/> -->
+                </button>
+
+
+
+            </field>
+        </record>
+
+
+    </data>
+</openerp>
+
